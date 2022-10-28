@@ -37,6 +37,8 @@
     - 16進数: 0x30A2
   - 浮動小数点: 3.14 / 2e8 / 3E4
   - 最大値: Number.MAX_SAFE_INTEGER = 2^53-1
+  - 内部的には浮動小数点で扱われている
+  - NaN / Number.isNaN
 - bigint: 1n
 - string: "" / ''
   - "" と '' に違いはない
