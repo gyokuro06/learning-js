@@ -3,8 +3,8 @@ run-name: E2E execute
 on:
   push:
     paths:
-    - 'jsprimer/e2e/github-profile-fetcher-e2e/*'
-    - 'jsprimer/github-profile-fetcher/*'
+    - 'jsprimer/e2e/github-profile-fetcher-e2e/**'
+    - 'jsprimer/github-profile-fetcher/**'
 defaults:
   run:
     shell: bash
