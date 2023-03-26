@@ -11,7 +11,7 @@
         <gauge.version>1.4.3</gauge.version>
         <gauge.java.version>0.9.1</gauge.java.version>
         <kotlin.version>1.8.10</kotlin.version>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
