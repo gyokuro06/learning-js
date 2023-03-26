@@ -11,8 +11,9 @@ jobs:
       with:
         distribution: temurin
         java-version: 17
-    - name: Setup Gauge
+    - name: Install Gauge
       run: curl -Ssl https://downloads.gauge.org/stable | sh
+    - name: Setup Gauge
       run: gauge install java --version 0.9.1
     - name: Run E2E
       run: mvn clean test
