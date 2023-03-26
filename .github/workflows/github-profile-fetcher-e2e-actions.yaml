@@ -1,6 +1,10 @@
 name: github-profile-fetcher-e2e
 run-name: E2E execute
 on: [push]
+defaults:
+  run:
+    shell: bash
+    working-directory: jsprimer/e2e/github-profile-fetcher-e2e
 jobs:
   run-e2e:
     runs-on: ubuntu-22.04
@@ -17,4 +21,3 @@ jobs:
       run: gauge install java --version 0.9.1
     - name: Run E2E
       run: mvn clean test
-      working-directory: jsprime/e2e/github-profile-fetcher-e2e
