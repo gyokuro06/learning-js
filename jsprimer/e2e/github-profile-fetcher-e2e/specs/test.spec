@@ -1,4 +1,4 @@
-# test
+# test spec
 
 ## test scenario
 * テストステップ

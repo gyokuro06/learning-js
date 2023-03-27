@@ -24,4 +24,4 @@ jobs:
     - name: Setup Gauge
       run: gauge install java --version 0.9.1
     - name: Run E2E
-      run: mvn clean test
+      run: gauge run --tags "!unimplemented" specs
