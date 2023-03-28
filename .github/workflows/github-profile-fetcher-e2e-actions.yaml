@@ -20,6 +20,11 @@ jobs:
       with:
         distribution: temurin
         java-version: 17
+    - name: Up web
+      run: |
+        docker compose build test
+        docker compose up -d test
+      working-directory: jsprimer/github-profile-fetcher
     - name: Install Gauge
       run: curl -Ssl https://downloads.gauge.org/stable | sh
     - name: Setup Gauge

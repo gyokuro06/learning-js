@@ -1,0 +1,4 @@
+selenide:
+  browser: chrome
+  headless: true
+  baseUrl: http://localhost:13730
