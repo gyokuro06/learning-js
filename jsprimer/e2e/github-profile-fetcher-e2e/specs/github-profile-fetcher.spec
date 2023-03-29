@@ -11,3 +11,8 @@ tags: unimplemented
 
 ## プロフィール取得ボタンを見ることができる
 * ボタン"Get user info"が表示されていること
+
+## gyokuro06のプロフィールを見ることができる
+* ボタン"Get user info"が表示されている
+* ボタン"Get user info"をクリックする
+* プロフィールでユーザ名"gyokuro06"が表示されている

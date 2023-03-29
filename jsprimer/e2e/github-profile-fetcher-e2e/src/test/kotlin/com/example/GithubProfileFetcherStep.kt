@@ -22,8 +22,19 @@ class GithubProfileFetcherStep {
         `$`("input").shouldBe(visible)
     }
 
-    @Step("ボタン<text>が表示されていること")
+    @Step("ボタン<text>が表示されていること",
+        "ボタン<text>が表示されている")
     fun assertDisplayButton(text: String) {
         `$`("button").shouldBe(exactText(text))
+    }
+
+    @Step("ボタン<text>をクリックする")
+    fun clickButton(text: String) {
+        `$`("button").shouldBe(exactText(text)).click()
+    }
+
+    @Step("プロフィールでユーザ名<name>が表示されている")
+    fun assertDisplayUsernameInProfile(name: String) {
+        `$`(".profile-container .user-name").shouldHave(ownText(name))
     }
 }
