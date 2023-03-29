@@ -6,6 +6,7 @@ on:
     - '.github/workflows/github-profile-fetcher-e2e-actions.yaml'
     - 'jsprimer/e2e/github-profile-fetcher-e2e/**'
     - 'jsprimer/github-profile-fetcher/**'
+  workflow_dispatch:
 defaults:
   run:
     shell: bash
