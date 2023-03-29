@@ -16,4 +16,9 @@ class GithubProfileFetcherStep {
     fun assertDisplayPageTitle(pageTitle: String) {
         `$`(".page-title").shouldHave(exactOwnText(pageTitle))
     }
+
+    @Step("GitHub IDの入力フォームが表示されていること")
+    fun assertDisplayGithubIdInputForm() {
+        `$`("input").shouldBe(visible)
+    }
 }
