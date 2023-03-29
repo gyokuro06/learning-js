@@ -42,4 +42,9 @@ class GithubProfileFetcherStep {
     fun assertDisplayAvatarIcon() {
         `$`(".profile-container .avatar-icon").shouldBe(visible)
     }
+
+    @Step("プロフィールでリポジトリURLが表示されている")
+    fun assertDisplayRepositoryUrl() {
+        `$`(".profile-container .repo-url").shouldBe(visible)
+    }
 }
