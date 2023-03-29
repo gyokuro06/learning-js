@@ -27,6 +27,11 @@ class GithubProfileFetcherStep {
         `$`(".id-input-container input").shouldHave(attribute("placeholder", text))
     }
 
+    @Step("GitHub ID<id>を入力する")
+    fun inputGithubId(id: String) {
+        `$`(".id-input-container input").value = id
+    }
+
     @Step("ボタン<text>が表示されていること",
         "ボタン<text>が表示されている")
     fun assertDisplayButton(text: String) {

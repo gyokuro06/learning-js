@@ -11,7 +11,7 @@ export async function getUserProfile(userId) {
 }
 
 export async function onButtonClick(_) {
-    const userId = "gyokuro06";
+    const userId = window.document.querySelector('.id-input-container input').value
     const userProfile = await getUserProfile(userId);
     window.document.getElementsByClassName('profile-container').item(0).innerHTML = `
         <h4 class="user-name">ユーザー名: ${userProfile.userName}</h4>
@@ -31,7 +31,6 @@ const toUserProfile = (profile) => {
     }
 }
 
-const button = window.document.getElementsByTagName('button').item(0)
-button.addEventListener('click', () => {
+window.document.querySelector(".id-input-container button").addEventListener('click', () => {
     onButtonClick();
 })
