@@ -5,6 +5,6 @@
 * ページタイトルに"GitHub Profile Fetcher"が表示されていること
 
 ## GitHub IDの入力フォームが表示されている
-tags: unimplemeted
+tags: unimplemented
 * GitHub Profile Fetcherを開く
 * GitHub IDの入力フォームが表示されていること
