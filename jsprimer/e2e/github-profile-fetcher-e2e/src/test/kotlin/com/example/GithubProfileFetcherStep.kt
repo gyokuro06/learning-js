@@ -19,7 +19,12 @@ class GithubProfileFetcherStep {
 
     @Step("GitHub IDの入力フォームが表示されていること")
     fun assertDisplayGithubIdInputForm() {
-        `$`("input").shouldBe(visible)
+        `$`(".id-input-container input").shouldBe(visible)
+    }
+
+    @Step("GitHub IDの入力フォームにプレースホルダーとして<text>が表示されていること")
+    fun assertPlaceholderInGithubIdInputForm(text: String) {
+        `$`(".id-input-container input").shouldHave(attribute("placeholder", text))
     }
 
     @Step("ボタン<text>が表示されていること",
