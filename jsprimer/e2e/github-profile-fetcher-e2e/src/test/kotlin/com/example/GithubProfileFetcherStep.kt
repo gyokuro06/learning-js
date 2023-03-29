@@ -21,4 +21,9 @@ class GithubProfileFetcherStep {
     fun assertDisplayGithubIdInputForm() {
         `$`("input").shouldBe(visible)
     }
+
+    @Step("ボタン<text>が表示されていること")
+    fun assertDisplayButton(text: String) {
+        `$`("button").shouldBe(exactText(text))
+    }
 }
