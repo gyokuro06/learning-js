@@ -43,8 +43,8 @@ class GithubProfileFetcherStep {
         `$`(".profile-container .avatar-icon").shouldBe(visible)
     }
 
-    @Step("プロフィールでリポジトリURLが表示されている")
+    @Step("プロフィールでユーザホームURLが表示されている")
     fun assertDisplayRepositoryUrl() {
-        `$`(".profile-container .repo-url").shouldBe(visible)
+        `$`(".profile-container .user-home-url").shouldBe(visible)
     }
 }
