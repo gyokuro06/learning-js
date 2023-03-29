@@ -1,7 +1,5 @@
 "use strict";
 
-console.log("page loaded")
-
 export async function getProfile(userId) {
     const resposne = await fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`);
     return resposne.ok ? resposne.json() : console.error(`failed to get profile: ${userId}`);
@@ -21,7 +19,6 @@ export async function onButtonClick(_) {
 }
 
 const toUserProfile = (profile) => {
-    console.log(profile.login)
     return {
         userName: profile.login
     }
@@ -29,6 +26,5 @@ const toUserProfile = (profile) => {
 
 const button = window.document.getElementsByTagName('button').item(0)
 button.addEventListener('click', () => {
-    console.log("in click event listener callback")
     onButtonClick();
 })

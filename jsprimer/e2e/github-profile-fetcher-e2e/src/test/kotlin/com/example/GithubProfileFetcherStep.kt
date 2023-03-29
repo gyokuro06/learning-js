@@ -37,4 +37,9 @@ class GithubProfileFetcherStep {
     fun assertDisplayUsernameInProfile(name: String) {
         `$`(".profile-container .user-name").shouldHave(ownText(name))
     }
+
+    @Step("プロフィールでアバターアイコンが表示されている")
+    fun assertDisplayAvatarIcon() {
+        `$`(".profile-container .avatar-icon").shouldBe(visible)
+    }
 }
