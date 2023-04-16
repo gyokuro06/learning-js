@@ -1,0 +1,26 @@
+.hidden {
+    display: none;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: small;
+}
+
+.profile-container {
+    margin: 30px 0 0;
+}
+
+.profile-container .title {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.profile-container .user-name {
+    font-weight: normal;
+}
+
+.profile-container .avatar-icon {
+    height: 50px;
+    width: auto;
+}

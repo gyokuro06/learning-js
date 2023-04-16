@@ -43,6 +43,11 @@ class GithubProfileFetcherStep {
         `$`("button").shouldBe(exactText(text)).click()
     }
 
+    @Step("プロフィールでタイトル<title>が表示されている")
+    fun assertDisplayProfileTitle(title: String) {
+        `$`(".profile-container .title").shouldHave(exactOwnText(title))
+    }
+
     @Step("プロフィールでユーザ名<name>が表示されている")
     fun assertDisplayUsernameInProfile(name: String) {
         `$`(".profile-container .user-name").shouldHave(ownText(name))
@@ -56,5 +61,15 @@ class GithubProfileFetcherStep {
     @Step("プロフィールでユーザホームURLが表示されている")
     fun assertDisplayRepositoryUrl() {
         `$`(".profile-container .user-home-url").shouldBe(visible)
+    }
+
+    @Step("<message>というエラーメッセージが表示されていること")
+    fun assertErrorMessage(message: String) {
+        `$`(".id-input-container .error-message").shouldHave(exactOwnText(message))
+    }
+
+    @Step("プロフィールが表示されていない")
+    fun assertProfileInvisibility() {
+        `$`(".profile-container").shouldNotBe(visible)
     }
 }
