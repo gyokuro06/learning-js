@@ -55,10 +55,13 @@ const onButtonClick = async () => {
 const makeProfileDOM = (profile) => {
     window.document.querySelector('.profile-container').innerHTML = `
         <div class="title">GitHub User Profile</div>
-        <h4 class="user-name">ユーザー名: ${profile.userName}</h4>
-        <img class="avatar-icon" src="${profile.avatarIcon}" alt="${profile.userName}" height=100>
         <dl>
-            <dt>User Home</dt>
+            <dt class="user-name-label">ユーザー名: </dt>
+            <dd class="user">
+                <div class="user-name">${profile.userName}</div>
+                <img class="avatar-icon" src="${profile.avatarIcon}" alt="${profile.userName}">
+            </dd>
+            <dt class="user-home-label">User Home: </dt>
             <dd class="user-home-url"><a href=${profile.userHomeUrl}>${profile.userHomeUrl}</a></dd>
         </dl>
     `
