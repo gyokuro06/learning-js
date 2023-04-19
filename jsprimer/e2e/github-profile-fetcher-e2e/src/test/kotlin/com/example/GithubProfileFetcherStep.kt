@@ -38,6 +38,11 @@ class GithubProfileFetcherStep {
         `$`("button").shouldBe(exactText(text))
     }
 
+    @Step("Enterキーを押す")
+    fun pushEnterKey() {
+        `$`(".id-input-container input").pressEnter()
+    }
+
     @Step("ボタン<text>をクリックする")
     fun clickButton(text: String) {
         `$`("button").shouldBe(exactText(text)).click()
@@ -66,6 +71,11 @@ class GithubProfileFetcherStep {
     @Step("<message>というエラーメッセージが表示されていること")
     fun assertErrorMessage(message: String) {
         `$`(".id-input-container .error-message").shouldHave(exactOwnText(message))
+    }
+
+    @Step("プロフィールが表示されていること")
+    fun assertDisplayProfile() {
+        `$`(".profile-container").shouldBe(visible)
     }
 
     @Step("プロフィールが表示されていない")
