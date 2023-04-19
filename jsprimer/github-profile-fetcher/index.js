@@ -14,7 +14,8 @@ const toUserProfile = (profile) => {
     return {
         userName: profile.login,
         avatarIcon: profile.avatar_url,
-        userHomeUrl: profile.html_url
+        userHomeUrl: profile.html_url,
+        publicRepositoriesNum: profile.public_repos
     }
 }
 
@@ -63,6 +64,8 @@ const makeProfileDOM = (profile) => {
             </dd>
             <dt class="user-home-label">User Home: </dt>
             <dd class="user-home-url"><a href=${profile.userHomeUrl}>${profile.userHomeUrl}</a></dd>
+            <dt class="public-repository-label">公開リポジトリ数: </dt>
+            <dd class="public-repository">${profile.publicRepositoriesNum}</dd>
         </dl>
     `
 }

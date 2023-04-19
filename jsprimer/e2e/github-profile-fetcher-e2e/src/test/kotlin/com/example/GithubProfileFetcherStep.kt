@@ -68,6 +68,11 @@ class GithubProfileFetcherStep {
         `$`(".profile-container .user-home-url").shouldBe(visible)
     }
 
+    @Step("プロフィールで公開リポジトリ数<repos_num>が表示されている")
+    fun assertDisplayRepositoriesNumber(repos_num: String) {
+        `$`(".profile-container .public-repository").shouldHave(exactOwnText(repos_num))
+    }
+
     @Step("<message>というエラーメッセージが表示されていること")
     fun assertErrorMessage(message: String) {
         `$`(".id-input-container .error-message").shouldHave(exactOwnText(message))
