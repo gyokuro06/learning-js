@@ -1,7 +1,7 @@
 # GitHub Profile Fetcher
 
 <!-- ![GitHub Profile Fetcher image](https://github.com/gyokuro06/learning-js/blob/main/jsprimer/github-profile-fetcher/image/github-profile-fetcher.png?raw=true) -->
-<img src="https://github.com/gyokuro06/learning-js/blob/main/jsprimer/github-profile-fetcher/image/github-profile-fetcher.png?raw=true" width="50">
+<img src="https://github.com/gyokuro06/learning-js/blob/main/jsprimer/github-profile-fetcher/image/github-profile-fetcher.png?raw=true" width="100">
 
 ## Overview
 
