@@ -1,0 +1,19 @@
+{
+  "name": "md2html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "9.0",
+    "marked": "4.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}

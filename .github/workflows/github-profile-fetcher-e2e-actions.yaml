@@ -1,5 +1,5 @@
 name: github-profile-fetcher-e2e
-run-name: E2E execute
+run-name: github-profile-fetcher-e2e execute
 on:
   push:
     paths:
