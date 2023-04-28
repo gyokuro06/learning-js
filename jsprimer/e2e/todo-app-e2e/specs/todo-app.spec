@@ -6,5 +6,4 @@
 * タイトル"ToDo App"が表示されている
 
 ## ページタイトルを見ることができる
-tags: unimplemented
 * ページタイトル"ToDo App"が表示されている

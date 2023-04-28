@@ -1,9 +1,8 @@
 import com.sksamuel.hoplite.ConfigLoaderBuilder
 import com.sksamuel.hoplite.addResourceSource
-import java.net.URL
 
 val config = ConfigLoaderBuilder.default()
-    .addResourceSource("uat.yaml")
+    .addResourceSource("/uat.yaml")
     .build()
     .loadConfigOrThrow<Config>()
 
@@ -12,7 +11,7 @@ data class Config(
 )
 
 data class Selenide(
-    val baseUrl: URL,
+    val baseUrl: String,
     val headless: Boolean,
     val browser: String
 )

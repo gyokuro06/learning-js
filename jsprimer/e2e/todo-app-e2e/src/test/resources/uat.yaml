@@ -1,4 +1,4 @@
 selenide:
-    baseUrl: http://localhost:13730
+    baseUrl: http://localhost:13730/
     headless: true
     browser: chrome
