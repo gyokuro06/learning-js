@@ -10,7 +10,7 @@ on:
 defaults:
   run:
     shell: bash
-    working-directory: jsprimer/e2e/github-profile-fetcher-e2e
+    working-directory: jsprimer/e2e/todo-app-e2e
 jobs:
   run-e2e:
     runs-on: ubuntu-22.04
