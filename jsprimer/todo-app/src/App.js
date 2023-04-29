@@ -21,8 +21,18 @@ export class App {
             const todoListBaseElement = element`<ul></ul>`;
             const todoItems = this.#todoListModel.getTodos();
             todoItems.forEach(item => {
-                const todoItemElement = element`<li>${item.title}</li>`;
+                const todoItemElement = item.completed
+                    ? element`<label class="todo-item-container"><li><input type="checkbox" class="todo-item-checkbox" checked><s>${item.title}</s></li></label>`
+                    : element`<label class="todo-item-container"><li><input type="checkbox" class="todo-item-checkbox">${item.title}</li></label>`;
                 todoListBaseElement.appendChild(todoItemElement);
+
+                const todoItemCheckbox = todoItemElement.querySelector('.todo-item-checkbox');
+                todoItemCheckbox.addEventListener('change', () => {
+                    this.#todoListModel.updateTodo({
+                        id: item.id,
+                        completed: !item.completed,
+                    });
+                });
             });
 
             render(todoListBaseElement, todoList);

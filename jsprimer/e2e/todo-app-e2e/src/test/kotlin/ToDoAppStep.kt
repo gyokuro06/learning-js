@@ -50,5 +50,5 @@ class ToDoAppStep {
 
     @Step("ToDoリストの<row>番目の項目が完了状態である")
     fun assertNthToDoItemStatusCompleted(row: Int) =
-        `$$`(".todo-list li")[row - 1].shouldBe(checked)
+        `$$`(".todo-list input[type='checkbox']")[row - 1].shouldBe(checked)
 }

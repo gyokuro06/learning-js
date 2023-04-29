@@ -63,6 +63,13 @@ body {
   border-bottom: none;
 }
 
+.todo-list li input[type="checkbox"] {
+  width: 40px;
+  height: auto;
+  margin: auto 0;
+  border: none;
+}
+
 .footer {
   color: #777;
   height: 20px;
