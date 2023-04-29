@@ -1,8 +1,12 @@
+import { TodoItemModel } from './model/TodoItemModel.js';
+import { TodoListModel } from './model/TodoListModel.js';
 import { element, render } from './view/html-util.js';
 
 console.log("App.js: loaded");
 
 export class App {
+    #todoListModel = new TodoListModel();
+
     constructor() {
         console.log("App initialized");
     }
@@ -11,21 +15,32 @@ export class App {
         const todoItemForm = document.querySelector("#todo-item-form");
         const todoItemInput = document.querySelector("#todo-item-input");
         const todoList = document.querySelector('#todo-list');
-        const todoListElement = element`<ul></ul>`;
         const todoCount = document.querySelector('#todo-count');
-        let todoItemNum = 0;
+
+        this.#todoListModel.onChange(() => {
+            const todoListBaseElement = element`<ul></ul>`;
+            const todoItems = this.#todoListModel.getTodos();
+            todoItems.forEach(item => {
+                const todoItemElement = element`<li>${item.title}</li>`;
+                todoListBaseElement.appendChild(todoItemElement);
+            });
+
+            render(todoListBaseElement, todoList);
+
+            todoCount.textContent = todoTotalCountMessage(this.#todoListModel.getTotalCount());
+        });
 
         todoItemForm.addEventListener("submit", (e) => {
             e.preventDefault();
-
-            const todoItem = element`<li>${todoItemInput.value}</li>`;
-            todoListElement.appendChild(todoItem);
-            render(todoListElement, todoList);
-
-            todoItemNum += 1;
-            todoCount.textContent = `ToDoアイテム数: ${todoItemNum}`;
-
+            this.#todoListModel.addTodo(new TodoItemModel({
+                title: todoItemInput.value,
+                completed: false,
+            }));
             todoItemInput.value = '';
-        });
+        })
     }
+}
+
+function todoTotalCountMessage(num) {
+    return `ToDoアイテム数: ${num}`;
 }
