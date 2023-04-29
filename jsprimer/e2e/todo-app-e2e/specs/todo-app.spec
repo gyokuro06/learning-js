@@ -13,9 +13,7 @@
 * ToDoアイテム入力欄にプレースホルダー"What need to be done?"が表示されている
 
 ## ToDoリストを見ることができる
-tags: WIP
 * ToDoリストが存在している
 
 ## ToDoアイテム数を見ることができる
-tags: WIP
 * ToDoアイテム数が"0"個で表示されている

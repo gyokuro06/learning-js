@@ -31,4 +31,16 @@ class ToDoAppStep {
     fun assertToDoItemNum(itemNum: Int) =
         "ToDoアイテム数: $itemNum"
             .let { `$`(".todo-count").shouldHave(exactOwnText(it)) }
+
+    @Step("ToDoアイテム入力欄に<item>を入力する")
+    fun inputToDoItem(item: String) =
+        `$`(".todo-item-input").shouldBe(visible).setValue(item)
+
+    @Step("Enterキーを入力する")
+    fun pushEnter() =
+        `$`(".todo-item-input").shouldBe(visible).pressEnter()
+
+    @Step("ToDoリストの<row>番目に<item>のToDoアイテムが表示されていること")
+    fun assertToDoListItem(row: Int, item: String) =
+        `$$`(".todo-list li")[row - 1].shouldHave(exactText(item))
 }
