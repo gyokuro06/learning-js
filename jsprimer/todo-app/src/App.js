@@ -1,14 +1,24 @@
 import { TodoItemModel } from './model/TodoItemModel.js';
 import { TodoListModel } from './model/TodoListModel.js';
-import { element, render } from './view/html-util.js';
+import { TodoListView } from './view/TodoListView.js';
+import { render } from './view/html-util.js';
 
 console.log("App.js: loaded");
 
 export class App {
     #todoListModel = new TodoListModel();
+    #todoListView = new TodoListView();
 
-    constructor() {
-        console.log("App initialized");
+    handleAddTodoItem(title) {
+        this.#todoListModel.addTodo(new TodoItemModel({ title, completed: false }));
+    }
+
+    handleUpdateTodoItem({ id, completed }) {
+        this.#todoListModel.updateTodo({ id, completed });
+    }
+
+    handleDeleteTodoItem(id) {
+        this.#todoListModel.deleteTodo(id);
     }
 
     mount() {
@@ -18,52 +28,21 @@ export class App {
         const todoCount = document.querySelector('#todo-count');
 
         this.#todoListModel.onChange(() => {
-            const todoListBaseElement = element`<ul></ul>`;
             const todoItems = this.#todoListModel.getTodos();
-            todoItems.forEach(item => {
-                const todoItemElement = item.completed
-                    ? element`<label class="todo-item-container">
-                        <li>
-                            <input type="checkbox" class="todo-item-checkbox" checked>
-                            <s>${item.title}</s>
-                            <button class="delete-button">x</button>
-                        </li>
-                    </label>`
-                    : element`<label class="todo-item-container">
-                        <li>
-                            <input type="checkbox" class="todo-item-checkbox">
-                            ${item.title}
-                            <button class="delete-button">x</button>
-                        </li>
-                    </label>`;
-
-                const todoItemCheckbox = todoItemElement.querySelector('.todo-item-checkbox');
-                todoItemCheckbox.addEventListener('change', () => {
-                    this.#todoListModel.updateTodo({
-                        id: item.id,
-                        completed: !item.completed,
-                    });
-                });
-
-                const deleteButton = todoItemElement.querySelector('.delete-button');
-                deleteButton.addEventListener('click', () => {
-                    this.#todoListModel.deleteTodo(item.id);
-                })
-
-                todoListBaseElement.appendChild(todoItemElement);
+            const todoListView = new TodoListView();
+            const todoListElement = todoListView.createElement(todoItems, {
+                onUpdateTodo: ({ id, completed }) => this.handleUpdateTodoItem({ id, completed }),
+                onDeleteTodo: id => this.handleDeleteTodoItem(id),
             });
 
-            render(todoListBaseElement, todoList);
+            render(todoListElement, todoList);
 
             todoCount.textContent = todoTotalCountMessage(this.#todoListModel.getTotalCount());
         });
 
         todoItemForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            this.#todoListModel.addTodo(new TodoItemModel({
-                title: todoItemInput.value,
-                completed: false,
-            }));
+            this.handleAddTodoItem(todoItemInput.value);
             todoItemInput.value = '';
         })
     }
