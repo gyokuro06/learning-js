@@ -17,9 +17,13 @@ class ToDoAppStep {
 
     @Step("ToDoアイテム入力欄が表示されている")
     fun assertToDoItemInput() =
-        `$`("#todo-item-input").shouldBe(visible)
+        `$`(".todo-item-input").shouldBe(visible)
 
     @Step("ToDoアイテム入力欄にプレースホルダー<text>が表示されている")
     fun assertToDoItemInputPlaceholder(text: String) =
-        `$`("#todo-item-input").shouldHave(attribute("placeholder", text))
+        `$`(".todo-item-input").shouldHave(attribute("placeholder", text))
+
+    @Step("ToDoリストが存在している")
+    fun assertToDoListExistence() =
+        `$`(".todo-list").shouldBe(exist)
 }
