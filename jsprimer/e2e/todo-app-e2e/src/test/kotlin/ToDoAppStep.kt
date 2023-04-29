@@ -42,7 +42,7 @@ class ToDoAppStep {
 
     @Step("ToDoリストの<row>番目に<item>のToDoアイテムが表示されていること")
     fun assertToDoListItem(row: Int, item: String) =
-        `$$`(".todo-list li")[row - 1].shouldHave(exactText(item))
+        `$$`(".todo-list li")[row - 1].shouldHave(text(item))
 
     @Step("ToDoリストの<row>番目の項目のチェックボックスをクリックする")
     fun clickNthToDoItemCheckbox(row: Int) =

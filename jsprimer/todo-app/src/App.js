@@ -22,9 +22,20 @@ export class App {
             const todoItems = this.#todoListModel.getTodos();
             todoItems.forEach(item => {
                 const todoItemElement = item.completed
-                    ? element`<label class="todo-item-container"><li><input type="checkbox" class="todo-item-checkbox" checked><s>${item.title}</s></li></label>`
-                    : element`<label class="todo-item-container"><li><input type="checkbox" class="todo-item-checkbox">${item.title}</li></label>`;
-                todoListBaseElement.appendChild(todoItemElement);
+                    ? element`<label class="todo-item-container">
+                        <li>
+                            <input type="checkbox" class="todo-item-checkbox" checked>
+                            <s>${item.title}</s>
+                            <button class="delete-button">x</button>
+                        </li>
+                    </label>`
+                    : element`<label class="todo-item-container">
+                        <li>
+                            <input type="checkbox" class="todo-item-checkbox">
+                            ${item.title}
+                            <button class="delete-button">x</button>
+                        </li>
+                    </label>`;
 
                 const todoItemCheckbox = todoItemElement.querySelector('.todo-item-checkbox');
                 todoItemCheckbox.addEventListener('change', () => {
@@ -33,6 +44,13 @@ export class App {
                         completed: !item.completed,
                     });
                 });
+
+                const deleteButton = todoItemElement.querySelector('.delete-button');
+                deleteButton.addEventListener('click', () => {
+                    this.#todoListModel.deleteTodo(item.id);
+                })
+
+                todoListBaseElement.appendChild(todoItemElement);
             });
 
             render(todoListBaseElement, todoList);

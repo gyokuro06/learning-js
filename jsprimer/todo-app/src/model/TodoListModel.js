@@ -38,4 +38,11 @@ export class TodoListModel extends EventEmitter {
         todoItem.completed = completed;
         this.emitChange();
     }
+
+    deleteTodo(id) {
+        this.#items = this.#items.filter(item => {
+            return item.id !== id;
+        })
+        this.emitChange();
+    }
 }
