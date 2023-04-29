@@ -12,6 +12,8 @@ export class App {
         const todoItemInput = document.querySelector("#todo-item-input");
         const todoList = document.querySelector('#todo-list');
         const todoListElement = element`<ul></ul>`;
+        const todoCount = document.querySelector('#todo-count');
+        let todoItemNum = 0;
 
         todoItemForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -19,6 +21,9 @@ export class App {
             const todoItem = element`<li>${todoItemInput.value}</li>`;
             todoListElement.appendChild(todoItem);
             render(todoListElement, todoList);
+
+            todoItemNum += 1;
+            todoCount.textContent = `ToDoアイテム数: ${todoItemNum}`;
 
             todoItemInput.value = '';
         });
