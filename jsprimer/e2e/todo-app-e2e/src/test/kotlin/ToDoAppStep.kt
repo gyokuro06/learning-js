@@ -26,4 +26,9 @@ class ToDoAppStep {
     @Step("ToDoリストが存在している")
     fun assertToDoListExistence() =
         `$`(".todo-list").shouldBe(exist)
+
+    @Step("ToDoアイテム数が<itemNum>個で表示されている")
+    fun assertToDoItemNum(itemNum: Int) =
+        "ToDoアイテム数: $itemNum"
+            .let { `$`(".todo-count").shouldHave(exactOwnText(it)) }
 }
