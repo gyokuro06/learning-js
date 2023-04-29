@@ -51,4 +51,8 @@ class ToDoAppStep {
     @Step("ToDoリストの<row>番目の項目が完了状態である")
     fun assertNthToDoItemStatusCompleted(row: Int) =
         `$$`(".todo-list input[type='checkbox']")[row - 1].shouldBe(checked)
+
+    @Step("ToDoリストの<row>番目の項目の削除ボタンをクリックする")
+    fun clickToDoItemDeleteButton(row: Int) =
+        `$$`(".todo-list .delete-button")[row - 1].click()
 }
