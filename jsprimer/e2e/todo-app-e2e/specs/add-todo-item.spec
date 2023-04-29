@@ -5,5 +5,4 @@
 * Enterキーを入力する
 
 ## ToDoリストで追加されたアイテムを見ることができる
-tags: unimplemented
 * ToDoリストの"1"番目に"生きる"のToDoアイテムが表示されていること

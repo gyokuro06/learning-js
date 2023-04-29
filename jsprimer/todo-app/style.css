@@ -46,6 +46,23 @@ body {
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 }
 
+.todo-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-list li {
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+  padding: 16px;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
 .footer {
   color: #777;
   height: 20px;
