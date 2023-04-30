@@ -21,20 +21,23 @@ export class TodoListModel extends EventEmitter {
         this.addEventListener("change", listener);
     }
 
+    offChange(listener) {
+        this.removeEventListener("change", listener);
+    }
+
     emitChange() {
         this.emit('change');
     }
 
     addTodo(todoItem) {
+        if (todoItem.isEmptyTitle()) return;
         this.#items.push(todoItem);
         this.emitChange();
     }
 
     updateTodo({ id, completed }) {
         const todoItem = this.#items.find(todo => todo.id === id);
-        if (!todoItem) {
-            return;
-        }
+        if (!todoItem) return;
         todoItem.completed = completed;
         this.emitChange();
     }
