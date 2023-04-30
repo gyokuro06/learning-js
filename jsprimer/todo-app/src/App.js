@@ -42,6 +42,7 @@ export class App {
 
         todoItemForm.addEventListener("submit", (e) => {
             e.preventDefault();
+            if (todoItemInput.value === '') return;
             this.handleAddTodoItem(todoItemInput.value);
             todoItemInput.value = '';
         })
